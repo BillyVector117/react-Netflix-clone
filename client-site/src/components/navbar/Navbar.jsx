@@ -9,12 +9,13 @@ import { useContext } from "react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { dispatch } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
+  //console.log('active user: ', user)
   return (
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
@@ -32,16 +33,17 @@ const Navbar = () => {
           <Link to="/movies" className="link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
-          <span>New and Popular</span>
-          <span>My List</span>
+        {/*   <span>New and Popular</span>
+          <span>My List</span> */}
         </div>
         <div className="right">
           <Search className="icon" />
-          <span>KID</span>
+          <span>{user.isAdmin ? "VIP" : "STANDAR"} </span>
           <Notifications className="icon" />
+          <span style={{marginRight:"10px"}}>{user.username}</span>
           <img
-            src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-            alt=""
+            src={user.imagePath ? user.imagePath : "https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"}
+            alt={user.username}
           />
           <div className="profile">
             <ArrowDropDown className="icon" />

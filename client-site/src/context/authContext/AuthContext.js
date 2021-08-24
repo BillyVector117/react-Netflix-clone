@@ -3,7 +3,7 @@ import AuthReducer from "./AuthReducer"
 
 const initialState = {
     // String to JSON
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user: JSON.parse(localStorage.getItem("user")) || null, // User is an Object with JWT, crdentials and more props
     fetching: false,
     error: false,
 }
