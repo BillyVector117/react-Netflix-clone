@@ -55,5 +55,3 @@ POST-CREATE new Movie / Serie (ADMIN SECTION)
 
 POST-CREATE new List (ADMIN SECTION)
 ![netflix-clone](https://github.com/BillyVector117/react-Netflix-clone/blob/main/Screenshot_10.png)
-
-Thanks Lama Dev! :D
